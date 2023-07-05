@@ -1,12 +1,10 @@
-const http = require('http');
+const http = require('express');
 const PORT = 3000;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World!');
-});
+let app = express();
 
-server.listen(PORT, () => {
+app.use(express.static('angular-app'));
+
+app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}/`);
 });
